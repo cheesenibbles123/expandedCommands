@@ -13,8 +13,17 @@ namespace expandedCommands
 	public class expandedCommands : MonoBehaviour
 	{
 		public static expandedCommands Instance;
+		/// <summary>
+		/// WakeNetObject (Identical to the chatbox wno)
+		/// </summary>
 		WakeNetObject wno;
+		/// <summary>
+		/// Config file location
+		/// </summary>
 		static readonly string config = "/config/expandedCommands.cfg";
+		/// <summary>
+		/// Command prefix
+		/// </summary>
 		static string prefix = "!";
 
 		void Awake()
@@ -50,6 +59,9 @@ namespace expandedCommands
 			loadSettings();
 		}
 
+		/// <summary>
+		/// Generate settings file based on current loaded setup
+		/// </summary>
 		void generateSettings()
 		{
 			StreamWriter streamWriter = new StreamWriter(config);
@@ -57,6 +69,9 @@ namespace expandedCommands
 			streamWriter.Close();
 		}
 
+		/// <summary>
+		/// Load settings from the config file
+		/// </summary>
 		void loadSettings()
 		{
 			if (!File.Exists(config))
@@ -85,6 +100,12 @@ namespace expandedCommands
 			}
 		}
 
+		/// <summary>
+		/// Send a chat message
+		/// </summary>
+		/// <param name="msg">Message contents</param>
+		/// <param name="target">Message target</param>
+		/// <param name="logText">Whether or not to log the passed text</param>
 		static void sendChatMessage(string msg, int target, bool logText)
         {
 			Instance.wno.òäóæåòîððòä("broadcastChat", target, new object[]
@@ -100,6 +121,12 @@ namespace expandedCommands
             }
 		}
 
+		/// <summary>
+		/// Get a ship by team ID
+		/// </summary>
+		/// <param name="ID">Team ID</param>
+		/// <param name="ship">Given teams shipHealth component</param>
+		/// <returns>Boolean ship exists</returns>
 		public static bool getShipHealthByID(int ID, out ShipHealth ship)
 		{
 			if (GameMode.Instance.teamParents[ID])
