@@ -27,19 +27,19 @@ namespace expandedCommands
 		static string prefix = "!";
 
 		void Awake()
-        {
+		{
 			if (!Instance)
-            {
+			{
 				Instance = this;
-            }
-            else
-            {
+			}
+			else
+			{
 				DestroyImmediate(this);
-            }
-        }
+			}
+		}
 
 		void Start()
-        {
+		{
 			try
 			{
 				HarmonyInstance harmonyInstance = HarmonyInstance.Create("com.github.archie");
@@ -107,7 +107,7 @@ namespace expandedCommands
 		/// <param name="target">Message target</param>
 		/// <param name="logText">Whether or not to log the passed text</param>
 		static void sendChatMessage(string msg, int target, bool logText)
-        {
+		{
 			Instance.wno.òäóæåòîððòä("broadcastChat", target, new object[]
 			{
 				1,
@@ -116,9 +116,9 @@ namespace expandedCommands
 				msg
 			});
 			if (logText)
-            {
+			{
 				Log.log(msg);
-            }
+			}
 		}
 
 		/// <summary>
@@ -141,7 +141,7 @@ namespace expandedCommands
 			}
 		}
 
-        [HarmonyPatch(typeof(Chat), "sendChat")]
+		[HarmonyPatch(typeof(Chat), "sendChat")]
 		class ChatPatch
 		{
 			private bool Prefix(int chatType, int senderTeam, string sender, string text, ïçîìäîóäìïæ.åéðñðçîîïêç info)
