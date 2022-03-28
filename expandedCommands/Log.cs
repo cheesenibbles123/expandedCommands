@@ -20,7 +20,7 @@ namespace expandedCommands
 		/// <param name="user">SteamID of the user that ran the command</param>
 		public static void logCommand(string command, ulong user)
 		{
-			logger.Log($"[COMMAND:{command}:{user}");
+			logger.Log($"[COMMAND:{command}:{user}]");
 		}
 	}
 }
